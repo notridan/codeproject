@@ -90,9 +90,9 @@ class ProjectNoteController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $noteId)
     {
-        $this->service->update($request->all(), $id);
+        $this->service->update($request->all(), $noteId);
     }
 
     /**
@@ -101,10 +101,10 @@ class ProjectNoteController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, $noteId)
     {
 
-        return ['success' => $this->repository->delete($id)];
+        return ['success' => $this->repository->delete($noteId)];
 
             //['success' => Client::find($id)->delete()];
 

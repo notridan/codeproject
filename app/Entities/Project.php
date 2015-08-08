@@ -14,10 +14,29 @@ class Project extends Model implements Transformable
         'owner_id',
         'client_id',
         'name',
+        'description',
         'progress',
         'status',
         'due_date'
     ];
+
+    /**
+     * Get Owner
+     * @return User
+     */
+    public function owner()
+    {
+        return $this->hasOne(User::class, 'id','owner_id');
+    }
+
+    /**
+     * Get Client
+     * @return Client
+     */
+    public function client()
+    {
+        return $this->hasOne(Client::class, 'id','client_id');
+    }
 
     public function notes()
     {
